@@ -73,11 +73,11 @@ public class GameManeger : MonoBehaviour
 
         }
 
-        //Vector3 spawnPosition = new Vector3(-40f, 0f, 0f);
-        //Quaternion spawnRotation = Quaternion.identity;
+        Vector3 spawnPosition = new Vector3(-40f, 0f, 0f);
+        Quaternion spawnRotation = Quaternion.identity;
 
         // プレハブを配置
-        //GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
+        GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
         //pickRadom
 
     }
