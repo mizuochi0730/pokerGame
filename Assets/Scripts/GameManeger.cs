@@ -7,6 +7,7 @@ using System;
 public class GameManeger : MonoBehaviour
 {
     public GameObject Black_ManyDeck_00;
+    GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
 
     List<string> suto = new List<string>
     {
@@ -79,13 +80,35 @@ public class GameManeger : MonoBehaviour
         // プレハブを配置
         GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
         //pickRadom
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        string info1 = "suto[randomCardSutoNumber]";
+        string info2 = "cardNumber[randomCardNumber]";
       
+        List<GameObject> similarObjects = new List<GameObject>();
+
+        foreach (GameObject obj in allObjects)
+        {
+            string combinedName = info1 + info2;
+            if (obj.name.Contains(combinedName))
+            {
+                similarObjects.Add(obj);
+            }
+        }
+        foreach (GameObject similarObj in similarObjects)
+        {
+            string name = similarObj.name;
+            Vector3 position = similarObj.transform.position;
+
+            // 取得した情報を使って何か処理を行う
+            // 例: デバッグログに表示する
+            Debug.Log("Similar Object - Name: " + name + ", Position: " + position);
+        }
     }
 
 }
