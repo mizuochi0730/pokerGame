@@ -52,7 +52,7 @@ public class GameManeger : MonoBehaviour
                 pickedCard.Add(suto[randomCardSutoNumber] + cardNumber[randomCardNumber]);
                 // check duplicate
                 bool duplicateFound = false;
-                for(int e = 0; e < count; e++)
+                for (int e = 0; e < count; e++)
                 {
                     if (pickedCard[e] == suto[randomCardSutoNumber] + cardNumber[randomCardNumber])
                     {
@@ -60,7 +60,7 @@ public class GameManeger : MonoBehaviour
                         break;
                     }
                 }
-                if(!duplicateFound)
+                if (!duplicateFound)
                 {
                     pickedCard[count] = suto[randomCardSutoNumber] + cardNumber[randomCardNumber];
                     count++;
@@ -76,7 +76,7 @@ public class GameManeger : MonoBehaviour
         Quaternion spawnRotation = Quaternion.identity;
 
         // プレハブを配置
-        GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
+        //GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
         //pickRadom
 
     }
