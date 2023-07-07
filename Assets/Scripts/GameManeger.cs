@@ -50,6 +50,7 @@ public class GameManeger : MonoBehaviour
                 Debug.Log(suto[randomCardSutoNumber] + cardNumber[randomCardNumber]);
                 // add picked card
                 pickedCard.Add(suto[randomCardSutoNumber] + cardNumber[randomCardNumber]);
+                
                 // check duplicate
                 bool duplicateFound = false;
                 for (int e = 0; e < count; e++)
@@ -65,15 +66,15 @@ public class GameManeger : MonoBehaviour
                     pickedCard[count] = suto[randomCardSutoNumber] + cardNumber[randomCardNumber];
                     count++;
                 }
-            } while (count < pickedCard.Count);
+            } while (count < 1);
             // remake card
 
 
 
         }
 
-        Vector3 spawnPosition = new Vector3(-40f, 0f, 0f);
-        Quaternion spawnRotation = Quaternion.identity;
+        //Vector3 spawnPosition = new Vector3(-40f, 0f, 0f);
+        //Quaternion spawnRotation = Quaternion.identity;
 
         // プレハブを配置
         //GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
