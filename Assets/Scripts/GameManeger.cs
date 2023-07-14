@@ -6,7 +6,6 @@ using System;
 
 public class GameManeger : MonoBehaviour
 { 
-    public GameObject Black_ManyDeck_00;
     GameObject[] allPrefabs = Resources.LoadAll<GameObject>("");
     List<string> suto = new List<string>
     {
@@ -32,8 +31,6 @@ public class GameManeger : MonoBehaviour
                 cards.Add((s, n));
             }
         }
-        // make number for Egara
-
         // make choosed cards List
         List<string> pickedCard = new List<string>();
         // choose 5 card
@@ -69,43 +66,10 @@ public class GameManeger : MonoBehaviour
             } while (count < 1);
             // remake card
 
-
-
         }
 
-        Vector3 spawnPosition = new Vector3(-40f, 0f, 0f);
-        Quaternion spawnRotation = Quaternion.identity;
-
-        // プレハブを配置
-        GameObject spawnedPrefab = Instantiate(Black_ManyDeck_00, spawnPosition, spawnRotation);
+       
         //pickRadom
-        //// make temp card
-        //string suto = "suto[randomCardSutoNumber]";
-        //string cardNumber = "cardNumber[randomCardNumber]";
-
-        //// make card object List
-        //List<GameObject> similarPrefabs = new List<GameObject>();
-
-
-        //foreach (GameObject prefab in allPrefabs)
-        //{
-        //    string combinedName = suto + cardNumber;
-        //    if (prefab.name.Contains(combinedName))
-        //    {
-        //        similarPrefabs.Add(prefab);
-        //    }
-        //}
-        //foreach(GameObject similarPrefab in similarPrefabs)
-        //{
-        //    string name = similarPrefab.name;
-        //    string prefabPath = UnityEditor.AssetDatabase.GetAssetPath(similarPrefab);
-
-        //    // 取得した情報を使って何か処理を行う
-        //    // 例: デバッグログに表示する
-        //    Debug.Log("Similar Prefab - Name: " + name + ", Path: " + prefabPath);
-        //}
-
-
     }
 
     // Update is called once per frame
