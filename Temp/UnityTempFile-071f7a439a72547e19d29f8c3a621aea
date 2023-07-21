@@ -291,6 +291,7 @@
 /define:ENABLE_LEGACY_INPUT_MANAGER
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"Assets/PlayerManeger.cs"
 "Assets/Scripts/Extention.cs"
 "Assets/Scripts/GameManeger.cs"
+"Assets/Scripts/PlayerManeger.cs"
+"Assets/Scripts/PrefabInfo.cs"

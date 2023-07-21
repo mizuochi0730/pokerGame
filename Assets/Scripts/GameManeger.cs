@@ -6,7 +6,7 @@ using System;
 
 public class GameManeger : MonoBehaviour
 { 
-    GameObject[] allPrefabs = Resources.LoadAll<GameObject>("");
+   
     List<string> suto = new List<string>
     {
         "Club",
@@ -24,11 +24,35 @@ public class GameManeger : MonoBehaviour
     void Start()
     {
         // make cards
-        foreach(string s in suto)
+        foreach (string s in suto)
         {
             foreach(string n in cardNumber)
             {
                 cards.Add((s, n));
+            }
+        }
+
+        // dictionaryを作成
+        Dictionary<string, GameObject> cardNameToObject = new Dictionary<string, GameObject>();
+
+        // スートの配列
+        string[] suits = { "Diamond", "Club", "Spade", "Heart" };
+        int numberOfCardsPerSuit = 13;
+
+        // 各スートに対して1から13までのカードを生成して辞書に追加
+        foreach (string suit in suits)
+        {
+            // 1から13までのカードを作成
+            for (int j = 1; j <= numberOfCardsPerSuit; j++)
+            {
+                // カード名を生成 (例: "Diamond01", "Diamond02", ... "Heart13")
+                string cardName = suit + j.ToString("00");
+
+                // "Black_PlayingCards_" + カード名 + "_00" の名前のGameObjectを検索
+                GameObject cardObject = GameObject.Find("Black_PlayingCards_" + cardName + "_00");
+
+                // 辞書にカード名をキーとして、対応するGameObjectを追加
+                cardNameToObject.Add(cardName, cardObject);
             }
         }
         // make choosed cards List
@@ -64,12 +88,11 @@ public class GameManeger : MonoBehaviour
                     count++;
                 }
             } while (count < 1);
-            // remake card
 
         }
+        //選んだカードのリストをgameObjectのリストに変換
+        //gameObjectのリストのカードを並べる
 
-       
-        //pickRadom
     }
 
     // Update is called once per frame
@@ -80,5 +103,4 @@ public class GameManeger : MonoBehaviour
 
 
     }
-
 }

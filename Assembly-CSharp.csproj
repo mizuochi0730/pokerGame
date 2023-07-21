@@ -64,9 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\PlayerManeger.cs" />
     <Compile Include="Assets\Scripts\Extention.cs" />
     <Compile Include="Assets\Scripts\GameManeger.cs" />
+    <Compile Include="Assets\Scripts\PlayerManeger.cs" />
+    <Compile Include="Assets\Scripts\PrefabInfo.cs" />
     <None Include="Assets\Playing Cards\Readme_Eng.txt" />
     <None Include="Assets\Playing Cards\Readme_Jpn.txt" />
     <None Include="Assets\Scenes\reverseible.shader" />
