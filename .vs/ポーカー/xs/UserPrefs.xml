@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{061977CA-7EF2-9D02-18FB-47AB5E697D6B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManeger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PlayerManeger.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerManeger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManeger.cs" Line="99" Column="35" />
+      <File FileName="Assets/Scripts/GameManeger.cs" Line="11" Column="47" />
       <File FileName="Assets/Scripts/Extention.cs" />
       <File FileName="Assets/Scripts/PrefabInfo.cs" />
     </Files>
@@ -20,7 +20,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="704afb04-a814-41c6-969d-321df6f84bc6" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="149692ff-c6b3-4b8c-a1da-532fb8819961" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

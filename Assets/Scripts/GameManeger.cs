@@ -6,10 +6,10 @@ using System;
 
 public class GameManeger : MonoBehaviour
 {
-    public Vector3 offset = new Vector3(0f, 0f,-30f);
+    public Vector3 offset = new Vector3(0f, 0f,0f);
     public int numberOfPrefabs = 5;
-    Vector3 originalPosition = new Vector3(0f, 0f, 0f);
-    Vector3 originePositionChange = new Vector3(50, 0, 50);
+    Vector3 originalPosition = new Vector3(-75f, 0f, 0f);
+    Vector3 originePositionChange = new Vector3(0, 0, 50);
     Vector3 basePosition;
 
     List<string> suto = new List<string>
@@ -59,7 +59,7 @@ public class GameManeger : MonoBehaviour
                 GameObject cardObject = GameObject.Find("Black_PlayingCards_" + cardName + "_00");
 
                 // 辞書にカード名をキーとして、対応するGameObjectを追加
-                cardNameToObject.Add(cardName, cardObject);
+                fcardNameToObject.Add(cardName, cardObject);
             }
         }
         // make choosed cards List
@@ -140,9 +140,6 @@ public class GameManeger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-
-
 
     }
 }
