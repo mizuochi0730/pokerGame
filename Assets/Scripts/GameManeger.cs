@@ -32,7 +32,7 @@ public class GameManeger : MonoBehaviour
             blackPlayingCards[j] = temp;
         }
     }
-
+ 
 
     void Start()
     {
@@ -97,6 +97,7 @@ public class GameManeger : MonoBehaviour
             {
                 //選ばれたカードを捨てる
             }
+            ++
         }
         if(/*Enemy1 || Enemy2 || Enemy3 のターン*/)
         {
