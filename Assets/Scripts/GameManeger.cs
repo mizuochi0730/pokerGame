@@ -5,6 +5,7 @@ using UnityEngine;
 using System;
 using Random = System.Random;
 
+
 public class GameManeger : MonoBehaviour
 {
     //カードの配列
@@ -14,6 +15,7 @@ public class GameManeger : MonoBehaviour
     List<string> EnemyCards1 = new List<string>();
     List<string> EnemyCards2 = new List<string>();
     List<string> EnemyCards3 = new List<string>();
+    int t = 0;
 
     //シャッフルの定義
 
@@ -30,11 +32,11 @@ public class GameManeger : MonoBehaviour
             blackPlayingCards[j] = temp;
         }
     }
- 
+
 
     void Start()
     {
-         //ここで配列をシャッフルする
+        //ここで配列をシャッフルする
         Shuffle(blackPlayingCards);
         int ofsetPlayer = 22;
         int ofsetEnemy = 18;
@@ -64,7 +66,7 @@ public class GameManeger : MonoBehaviour
                 Instantiate(blackPlayingCards[y], new Vector3(-57, 14, -40 + y * ofsetEnemy), Quaternion.Euler(90, -90, 20));
                 EnemyCards3.Add(blackPlayingCards[y].name);
             }
-       
+
         }
         // kimoi owari
 
@@ -73,41 +75,55 @@ public class GameManeger : MonoBehaviour
             Debug.Log(playerCards[i]);
         }
         //手札の処理
-        int t = 0;
-        if (t == 0)
-        {
-            //if (/*press 選ぶボタン*/)
-            //{
-            //    //カードを選んだ状態にする 
-            //}
-            //if (/*press 捨てるボタン*/)
-            //{
-            //    //選ばれたカードを捨てる
-            //}
-            t++;
-        }
-        if (t == 1)
-        {
-            //期待値が一番高くなるようにカードを選ぶ
-            //カードを捨てる
-            t++;
-        }
-        if(t == 2)
-        {
-            t++;
-        }
-        if(t == 3)
-        {
-            t++;
-        }
-
-
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        
+            //Debug.Log("Update");
+            if (t == 0)
+            {
+            //tが０の時に１、２、３、４、５の数字をおしてカードを選んでfを押して選ばれているカードを全て捨てる。
+            //
+                //if (Keydown.D1)
+                if (Input.GetKeyUp(KeyCode.Space))
+                {
+                    Debug.Log("Space is pushed");
+                    t++;
+                }
+                //このボタンを押したらカードを選ばれた状態にする
+                //blackPlayingCards[] = new ChoseCard;
+                //カードを選んだ状態にする
+                }
+                //if (press  F )
+                //{
+                    //
+                    //Destroy(ChoseCard, 0.5f);
+                    //選ばれたカードを捨てる
+                    //t++;
+                //}
+              
+    
+            if (t == 1)
+            {
+                //期待値が一番高くなるようにカードを選ぶ
+                //カードを捨    て
+                Debug.Log("t: "  + t);
+                t++;
+            }
+            if (t == 2)
+            {
+                Debug.Log("t: " + t);
+                t++;
+            }
+            if (t == 3)
+            {
+                Debug.Log("t: " + t);
+                t = 0;
+                    
+            }
+
+
+        }
 
 
     }
-}
