@@ -2,7 +2,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameManeger.cs">
     <Files>
       <File FileName="Assets/Scripts/PlayerManeger.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameManeger.cs" Line="86" Column="15" />
+      <File FileName="Assets/Scripts/GameManeger.cs" Line="19" Column="51" />
       <File FileName="Assets/Scripts/Extention.cs" />
       <File FileName="Assets/Scripts/PrefabInfo.cs" />
     </Files>
@@ -10,7 +10,7 @@
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="ポーカー" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Playing Cards" expanded="True">
                 <Node name="Image" expanded="True">
                   <Node name="PlayingCards" expanded="True" />
@@ -21,11 +21,10 @@
                 <Node name="Resource" expanded="True">
                   <Node name="Materials" expanded="True" />
                   <Node name="Model" expanded="True" />
-                  <Node name="Prefab" expanded="True">
-                    <Node name="BackColor_Black" selected="True" />
-                  </Node>
+                  <Node name="Prefab" expanded="True" />
                 </Node>
               </Node>
+              <Node name="Scripts" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -34,7 +33,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="082fec65-6a23-410c-9211-11ebf619d237" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="fb1f2703-151e-4f21-b17d-fe33bcd0f976" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

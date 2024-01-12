@@ -1,36 +1,31 @@
-﻿using System.Collections.Generic;
+﻿using System;
 
-public static class ListExtention
+class Program
 {
-    public static T PickRandom<T>(this IList<T> source)
+    static void Main()
     {
-        var rnd = new System.Random();
-        int randIndex = rnd.Next(source.Count);
-        return source[randIndex];
+        Console.WriteLine("1を入力してEnterキーを押すと、2の二乗が計算されます。");
+
+        // ユーザーの入力を受け付ける
+        string userInput = Console.ReadLine();
+
+        // 入力が "1" の場合に2の二乗を計算
+        if (userInput == "1")
+        {
+            int result = Square(2);
+            Console.WriteLine($"2の二乗は {result} です。");
+        }
+        else
+        {
+            Console.WriteLine("無効な入力です。");
+        }
+
+        Console.ReadLine(); // プログラムがすぐに終了しないようにEnterキー待ちを追加
+    }
+
+    // 数字を二乗するメソッド
+    static int Square(int number)
+    {
+        return number * number;
     }
 }
-
-//class Program
-
-//    static List<T> SelectRandomElements<T>(List<T> list, int count)
-//    {
-//        Random random = new Random();
-//        List<T> randomElements = new List<T>();
-
-//        // 要素数がcount未満の場合、すべての要素を選択する
-//        count = Math.Min(count, list.Count);
-
-//        while (randomElements.Count < count)
-//        {
-//            int randomIndex = random.Next(list.Count);
-
-//            // 重複した要素を避けるために既に選択された要素をチェックする
-//            if (!randomElements.Contains(list[randomIndex]))
-//            {
-//                randomElements.Add(list[randomIndex]);
-//            }
-//        }
-
-//        return randomElements;
-//    }
-//}
