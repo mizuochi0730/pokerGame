@@ -54,13 +54,13 @@ public class GameManeger : MonoBehaviour
             }
         }
 
-        return ParseCardNumdict.Where(pair => pair.Value >= 2)  .ToDictionary(pair => pair.Key, pair => pair.Value);
+        return ParseCardNumdict.Where(pair => pair.Value >= 2).ToDictionary(pair => pair.Key, pair => pair.Value);
     }
 
 
 
 
-void Start()
+    void Start()
     {
         //ここで配列をシャッフルする
         Shuffle(blackPlayingCards);
@@ -69,7 +69,7 @@ void Start()
         //ここでシャッフルした配列の最初から５枚ずつカードを生成
 
         // kimoi
-        for (int y = 0; y < 20; y++) 
+        for (int y = 0; y < 20; y++)
         {
             if (0 <= y && y <= 4)
             {
@@ -110,13 +110,13 @@ void Start()
 
         if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
         {
-            
+
 
         }
 
         if (t == 0)
         {            //tが０の時に１、２、３、４、５の数字をおしてカードを選んでfを押して選ばれているカードを全て捨てる。
-            
+
             if (Input.GetKeyUp(KeyCode.Alpha1))
             {
                 Debug.Log("1 is pushed");
@@ -158,17 +158,17 @@ void Start()
                     if (index >= 0 && index < playerCards.Count)
                     {
                         //Destroy(playerCards[index]);
-                        
+
                         //名前からゲームオブジェクトを指定して削除する
                         playerCards.RemoveAt(index);
                         playerCards.Add(blackPlayingCards[i + 20 + 5 * lapsTurn].name);
                         Destroy(instantiatedCards[index]);
                         //二週目以降にも対応
-                        instantiatedCards[index] = Instantiate(blackPlayingCards[i + 20 + 5 * lapsTurn], new Vector3(-50 + index  * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0));
+                        instantiatedCards[index] = Instantiate(blackPlayingCards[i + 20 + 5 * lapsTurn], new Vector3(-50 + index * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0));
                         // instantiatedCards.Add(Instantiate(blackPlayingCards[index + 20 + 5 * lapsTurn], new Vector3(-50 + index -1 * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0)));
 
                     }
-                                        
+
                 }
                 t++;
                 ChoseCard.Clear();
@@ -177,7 +177,7 @@ void Start()
 
         if (t == 1)
         {
-            Debug.Log("t: "  + t);
+            Debug.Log("t: " + t);
             t++;
         }
         if (t == 2)
