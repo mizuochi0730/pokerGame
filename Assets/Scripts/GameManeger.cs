@@ -110,28 +110,7 @@ void Start()
 
         if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
         {
-            //Check OnePair
-            int[] ParseCardNum = new int []{ 0, 1, 1, 1, 1 };
-            string[] ParseCardSuit = new string[] { "", "", "", "", ""};
-
-            for (int i = 0; i < 5; i++)
-            {
-                ParseCardName(playerCards[i], out ParseCardNum[i], out ParseCardSuit[i]);
-            }
-            if(GetDuplicatesAndCount.ParseCardNumdict.ContainsKey)
-            //for (int i = 0; i < 5; i++)
-            //{
-            //    for (int j = i; j < 5; j++)
-            //    {
-            //        if (ParseCardNum[i] == ParseCardNum[j])
-            //        {
-
-            //        }
-            //    }
-            //}
-                //結果を表示
-                Debug.Log("Number: " + ParseCardNum);
-            Debug.Log("Suit: " + ParseCardSuit);
+            
 
         }
 
