@@ -110,7 +110,28 @@ public class GameManeger : MonoBehaviour
 
         if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
         {
+            //役判定
+            // プレイヤーの役判定
+            ParseCardName(playerCards[0])
+            List<string> suit = new List<string> ();
+            // suitの配列にParseCardNameで取ってきたsuitを代入する
 
+            // ロイヤルフラッシュ
+            // TODO: SuitとNumberの配列を作る
+            // if(suit[0] = [4])
+            // {
+            //     if(number[0]= 1)
+            //     {
+
+            //     }
+            //     else
+            //     {
+            //     Debug.Log("Flush");
+            //     }
+            }
+            
+        }
+            // COMの約判定
 
         }
 
@@ -202,7 +223,6 @@ public class GameManeger : MonoBehaviour
     {
         // 正規表現を使用して数字とスートを抽出
         Match match = Regex.Match(cardName, @"Black_PlayingCards_(\w+)(\d\d)_(\d+)$");
-
         if (match.Success && match.Groups.Count == 4)
         {
             // スートと数字を取得
@@ -216,6 +236,7 @@ public class GameManeger : MonoBehaviour
             number = -1;
             Debug.Log("Invalid card name format: " + cardName);
         }
+        
     }
 
 
