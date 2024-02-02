@@ -93,39 +93,10 @@ public class GameManeger : MonoBehaviour
         }
         //手札の処理
     }
-    void FixedUpdate()
+    void Update()
     {
         int ofsetPlayer2nd = 22;
         //Debug.Log("Update");
-        if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
-        {
-            //役判定
-            // プレイヤーの役判定
-            List<string> playersuits = new List<string>();
-            List<int> playernumbers = new List<int>();
-            for (int i = 0; i < 5, i++)
-            {
-                ParseCardName(playerCards[i], out int nu, out string su);
-                playersuits.Add(su);
-                playernumbers.Add(nu);
-                Debug.Log(playersuits);
-                Debug.Log(playernumbers);
-            }
-            // suitの配列にParseCardNameで取ってきたsuitを代入する
-            // ロイヤルフラッシュ
-            // TODO: SuitとNumberの配列を作る
-            // if([0] = [4])
-            // {
-            //     if([0]= 1)
-            //     {
-
-            //     }
-            //     else
-            //     {
-            //     Debug.Log("Flush");
-            //     }
-            // }
-        }
         // COMの約判定
         if (t == 0)
         {            //tが０の時に１、２、３、４、５の数字をおしてカードを選んでfを押して選ばれているカードを全て捨てる。
@@ -185,20 +156,55 @@ public class GameManeger : MonoBehaviour
                 t++;
                 ChoseCard.Clear();
             }
+            if (lapsTurn == 2 || Input.GetKeyUp(KeyCode.T))
+            {
+                //役判定
+                // プレイヤーの役判定
+                List<string> playersuits = new List<string>();
+                List<int> playernumbers = new List<int>();
+                for (int i = 0; i < 5; i++)
+                {
+                    ParseCardName(playerCards[i], out int nu, out string su);
+                    playersuits.Add(su);
+                    playernumbers.Add(nu);
+                    //二週目以降の対策
+                    Debug.Log(playersuits);
+                    Debug.Log(playernumbers);
+                }
+                foreach(string hoge in playerCards)
+                {
+                    Debug.Log(hoge);
+                }
+                foreach(int hoge in playernumbers)
+                {
+                    Debug.Log(hoge);
+                }
+                // suitの配列にParseCardNameで取ってきたsuitを代入する
+                // ロイヤルフラッシュ
+                // TODO: SuitとNumberの配列を作る
+                // if([0] = [4])
+                // {
+                //     if([0]= 1)
+                //     {
+
+                //     }
+                //     else
+                //     {
+                //     Debug.Log("Flush");
+                //     }
+                // }
+            }
         }
         if (t == 1)
         {
-            Debug.Log("t: " + t);
             t++;
         }
         if (t == 2)
         {
-            Debug.Log("t: " + t);
             t++;
         }
         if (t == 3)
         {
-            Debug.Log("t: " + t);
             t = 0;
             lapsTurn++;
             Debug.Log(lapsTurn + "lap");
