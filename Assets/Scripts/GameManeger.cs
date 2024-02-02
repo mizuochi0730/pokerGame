@@ -53,13 +53,8 @@ public class GameManeger : MonoBehaviour
                 ParseCardNumdict[num] = 1;
             }
         }
-
         return ParseCardNumdict.Where(pair => pair.Value >= 2).ToDictionary(pair => pair.Key, pair => pair.Value);
     }
-
-
-
-
     void Start()
     {
         //ここで配列をシャッフルする
@@ -90,37 +85,38 @@ public class GameManeger : MonoBehaviour
                 instantiatedCards.Add(Instantiate(blackPlayingCards[y], new Vector3(-57, 14, -40 + y * ofsetEnemy), Quaternion.Euler(90, -90, 20)));
                 EnemyCards3.Add(blackPlayingCards[y].name);
             }
-
         }
-
         // kimoi owari
-
         for (int i = 0; i <= 4; i++)
         {
             Debug.Log(playerCards[i]);
         }
         //手札の処理
     }
-
     void FixedUpdate()
     {
         int ofsetPlayer2nd = 22;
         //Debug.Log("Update");
-
-
         if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
         {
             //役判定
             // プレイヤーの役判定
-            ParseCardName(playerCards[0])
-            List<string> suit = new List<string> ();
+            List<string> playersuits = new List<string>();
+            List<int> playernumbers = new List<int>();
+            for (int i = 0; i < 5, i++)
+            {
+                ParseCardName(playerCards[i], out int nu, out string su);
+                playersuits.Add(su);
+                playernumbers.Add(nu);
+                Debug.Log(playersuits);
+                Debug.Log(playernumbers);
+            }
             // suitの配列にParseCardNameで取ってきたsuitを代入する
-
             // ロイヤルフラッシュ
             // TODO: SuitとNumberの配列を作る
-            // if(suit[0] = [4])
+            // if([0] = [4])
             // {
-            //     if(number[0]= 1)
+            //     if([0]= 1)
             //     {
 
             //     }
@@ -128,16 +124,11 @@ public class GameManeger : MonoBehaviour
             //     {
             //     Debug.Log("Flush");
             //     }
-            }
-            
+            // }
         }
-            // COMの約判定
-
-        }
-
+        // COMの約判定
         if (t == 0)
         {            //tが０の時に１、２、３、４、５の数字をおしてカードを選んでfを押して選ばれているカードを全て捨てる。
-
             if (Input.GetKeyUp(KeyCode.Alpha1))
             {
                 Debug.Log("1 is pushed");
@@ -195,7 +186,6 @@ public class GameManeger : MonoBehaviour
                 ChoseCard.Clear();
             }
         }
-
         if (t == 1)
         {
             Debug.Log("t: " + t);
@@ -212,10 +202,7 @@ public class GameManeger : MonoBehaviour
             t = 0;
             lapsTurn++;
             Debug.Log(lapsTurn + "lap");
-
-
         }
-
     }
 
 
@@ -236,8 +223,5 @@ public class GameManeger : MonoBehaviour
             number = -1;
             Debug.Log("Invalid card name format: " + cardName);
         }
-        
     }
-
-
 }
