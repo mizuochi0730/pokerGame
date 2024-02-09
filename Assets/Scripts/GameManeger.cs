@@ -148,6 +148,7 @@ public class GameManeger : MonoBehaviour
                         Destroy(instantiatedCards[index]);
                         //二週目以降にも対応
                         instantiatedCards[index] = Instantiate(blackPlayingCards[i + 20 + 5 * lapsTurn], new Vector3(-50 + index * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0));
+                        Debug.Log(blackPlayingCards[i + 20 + 5 * lapsTurn]);
                         // instantiatedCards.Add(Instantiate(blackPlayingCards[index + 20 + 5 * lapsTurn], new Vector3(-50 + index -1 * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0)));
 
                     }
@@ -156,7 +157,7 @@ public class GameManeger : MonoBehaviour
                 t++;
                 ChoseCard.Clear();
             }
-            if (lapsTurn == 2 || Input.GetKeyUp(KeyCode.T))
+            if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
             {
                 //役判定
                 // プレイヤーの役判定
@@ -165,36 +166,53 @@ public class GameManeger : MonoBehaviour
                 for (int i = 0; i < 5; i++)
                 {
                     ParseCardName(playerCards[i], out int nu, out string su);
-                    playersuits.Add(su);
-                    playernumbers.Add(nu);
+                    //playernumbers.Add(1, 10, 11, 12, 13);
+                    // playersuits = ["Club", "Club", "Club", "Club", "Club"];
+                    // playersuits.Add(su);
+                    // playernumbers.Add(nu);
                     //二週目以降の対策
-                    Debug.Log(playersuits);
-                    Debug.Log(playernumbers);
                 }
-                foreach(string hoge in playerCards)
+                foreach (string hoge in playerCards)
                 {
                     Debug.Log(hoge);
                 }
-                foreach(int hoge in playernumbers)
+                foreach (int hoge in playernumbers)
                 {
                     Debug.Log(hoge);
                 }
                 // suitの配列にParseCardNameで取ってきたsuitを代入する
-                // ロイヤルフラッシュ
-                // TODO: SuitとNumberの配列を作る
-                // if([0] = [4])
+                //TODO : ロイヤルフラッシュの役判定を作る　　　　　　　その下にストレートフラッシュ　　　　　　その下にフラッシュ　
+                //小さい順に数字を並べる
+                playersuits.Sort();
+                playernumbers.Sort();
+                // //フラッシュ
+                // if (true)
                 // {
-                //     if([0]= 1)
-                //     {
-
-                //     }
-                //     else
-                //     {
-                //     Debug.Log("Flush");
-                //     }
+                //ストレート
+                // if (playernumbers[0] + 9 == playernumbers[1] && playernumbers[1] + 1 == playernumbers[2] && playernumbers[2] + 1 == playernumbers[3] && playernumbers[3] + 1 == playernumbers[4])
+                // {
+                //     Debug.Log("ロイアルストレートフラッシュ");
                 // }
+                // else if (playernumbers[0] + 1 == playernumbers[1] && playernumbers[1] + 1 == playernumbers[2] && playernumbers[2] + 1 == playernumbers[3] && playernumbers[3] + 1 == playernumbers[4])
+                // {
+                //     Debug.Log("ストレートフラッシュ");
+                // }
+                // else
+                // {
+                //     Debug.Log("フラッシュ");
+                // }
+
+                //}
+                // //ストレートは別
+                // else if (playernumbers[0] + 1 == playernumbers[1] && playernumbers[1] + 1 == playernumbers[2] && playernumbers[2] + 1 == playernumbers[3] && playernumbers[3] + 1 == playernumbers[4])
+                // {
+                //     Debug.Log("ストレート");
+                // }
+                //　　　　　　　　　　　　　　　ワンペア、ツーペア、スリーカード、フルハウス
+
             }
         }
+
         if (t == 1)
         {
             t++;
