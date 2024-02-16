@@ -30,13 +30,13 @@ public class GameManeger : MonoBehaviour
         Random ram = new Random();
 
         // フィッシャー–イェーツシャッフルアルゴリズムを使用して配列をシャッフル
-        for (int i = blackPlayingCards.Length - 1; i > 0; i--)
-        {
-            int j = ram.Next(i + 1);
-            S temp = blackPlayingCards[i];
-            blackPlayingCards[i] = blackPlayingCards[j];
-            blackPlayingCards[j] = temp;
-        }
+        //     for (int i = blackPlayingCards.Length - 1; i > 0; i--)
+        //     {
+        //         int j = ram.Next(i + 1);
+        //         S temp = blackPlayingCards[i];
+        //         blackPlayingCards[i] = blackPlayingCards[j];
+        //         blackPlayingCards[j] = temp;
+        //     }
     }
     static Dictionary<int, int> GetDuplicatesAndCount(int[] array)
     {
@@ -138,13 +138,14 @@ public class GameManeger : MonoBehaviour
                     //注意！ChoseCardには押されたカードの情報しか入っていないよ！！
                     int index = ChoseCard[i];
                     // index out of range 対策
-                    if (index >= 0 && index < playerCards.Count)
+                    if (index >= 0)
                     {
                         //Destroy(playerCards[index]);
 
                         //名前からゲームオブジェクトを指定して削除する
-                        playerCards.RemoveAt(index);
+                        playerCards.RemoveAt(index);                  
                         playerCards.Add(blackPlayingCards[i + 20 + 5 * lapsTurn].name);
+                        Debug.Log("手札 :" + playerCards[0]);
                         Destroy(instantiatedCards[index]);
                         //二週目以降にも対応
                         instantiatedCards[index] = Instantiate(blackPlayingCards[i + 20 + 5 * lapsTurn], new Vector3(-50 + index * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0));
@@ -152,9 +153,18 @@ public class GameManeger : MonoBehaviour
                         // instantiatedCards.Add(Instantiate(blackPlayingCards[index + 20 + 5 * lapsTurn], new Vector3(-50 + index -1 * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0)));
 
                     }
-
+                    foreach (string hoge in playerCards)
+                    {
+                        Debug.Log(hoge);
+                    }
                 }
                 t++;
+
+                foreach (int tame in ChoseCard)
+                {
+                    Debug.Log(tame);
+                }
+
                 ChoseCard.Clear();
             }
             if (lapsTurn == 2 && Input.GetKeyUp(KeyCode.T))
