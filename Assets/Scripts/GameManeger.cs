@@ -89,7 +89,7 @@ public class GameManeger : MonoBehaviour
         // kimoi owari
         for (int i = 0; i <= 4; i++)
         {
-            Debug.Log(playerCards[i]);
+            //Debug.Log(playerCards[i]);
         }
         //手札の処理
     }
@@ -132,6 +132,7 @@ public class GameManeger : MonoBehaviour
                 // 配列を逆順にして後ろから削除：消す順番がズレるのを防ぐため
                 ChoseCard = ChoseCard.Distinct().ToList();
                 ChoseCard.Reverse();
+                Debug.Log("Choose Card Num: "  + ChoseCard.Count);
                 // ChoseCardの要素を使用してarrayから要素を削除
                 for (int i = 0; i <= ChoseCard.Count - 1; i++)
                 {
@@ -143,26 +144,30 @@ public class GameManeger : MonoBehaviour
                         //Destroy(playerCards[index]);
 
                         //名前からゲームオブジェクトを指定して削除する
-                        playerCards.RemoveAt(index);                  
-                        playerCards.Add(blackPlayingCards[i + 20 + 5 * lapsTurn].name);
-                        Debug.Log("手札 :" + playerCards[0]);
+                        Debug.Log("DELETE: "  + index.ToString() + "枚目 "+ playerCards[index]);
+                        Debug.Log("Add: "  + index.ToString() + "枚目 "+ blackPlayingCards[i + 20 + 5 * lapsTurn].name);
+                        playerCards[index] = blackPlayingCards[i + 20 + 5 * lapsTurn].name;    
+                        Debug.Log("0 :" + playerCards[0]);
+                        Debug.Log("1 :" + playerCards[1]);
+                        Debug.Log("2 :" + playerCards[2]);
+                        Debug.Log("3 :" + playerCards[3]);
+                        Debug.Log("4 :" + playerCards[4]);
                         Destroy(instantiatedCards[index]);
                         //二週目以降にも対応
                         instantiatedCards[index] = Instantiate(blackPlayingCards[i + 20 + 5 * lapsTurn], new Vector3(-50 + index * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0));
-                        Debug.Log(blackPlayingCards[i + 20 + 5 * lapsTurn]);
+                        //Debug.Log(blackPlayingCards[i + 20 + 5 * lapsTurn]);
                         // instantiatedCards.Add(Instantiate(blackPlayingCards[index + 20 + 5 * lapsTurn], new Vector3(-50 + index -1 * ofsetPlayer2nd, 14, 60), Quaternion.Euler(50, 0, 0)));
-
                     }
                     foreach (string hoge in playerCards)
                     {
-                        Debug.Log(hoge);
+                        //Debug.Log(hoge);
                     }
                 }
                 t++;
 
                 foreach (int tame in ChoseCard)
                 {
-                    Debug.Log(tame);
+                    //Debug.Log(tame);
                 }
 
                 ChoseCard.Clear();
@@ -184,11 +189,11 @@ public class GameManeger : MonoBehaviour
                 }
                 foreach (string hoge in playerCards)
                 {
-                    Debug.Log(hoge);
+                    //Debug.Log(hoge);
                 }
                 foreach (int hoge in playernumbers)
                 {
-                    Debug.Log(hoge);
+                    //Debug.Log(hoge);
                 }
                 // suitの配列にParseCardNameで取ってきたsuitを代入する
                 //TODO : ロイヤルフラッシュの役判定を作る　　　　　　　その下にストレートフラッシュ　　　　　　その下にフラッシュ　
@@ -255,7 +260,7 @@ public class GameManeger : MonoBehaviour
             // マッチしない場合はデフォルト値を設定
             suit = "";
             number = -1;
-            Debug.Log("Invalid card name format: " + cardName);
+            //Debug.Log("Invalid card name format: " + cardName);
         }
     }
 }
